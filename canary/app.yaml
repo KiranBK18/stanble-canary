@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-canary
+  namespace: argocd   # Argo CD should be installed in this namespace
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/<your-username>/nginx-canary-app.git  # <-- Replace this
+    targetRevision: HEAD
+    path: canary
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
