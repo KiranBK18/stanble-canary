@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
@@ -23,7 +23,9 @@ spec:
     canary:
       steps:
         - setWeight: 20
-        - pause: { duration: 30s }
+        - pause: { duration: 120s }
         - setWeight: 50
-        - pause: { duration: 60s }
+        - pause: { duration: 220s }
+        - setWeight: 80
+        - pause: { duration: 320s }
         - setWeight: 100
