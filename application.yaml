@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/KiranBK18/Nginx-Canary.git
     targetRevision: HEAD
-    path: k8s/canary-app
+    path: k8s/stable-app
   destination:
     server: https://kubernetes.default.svc
     namespace: default
