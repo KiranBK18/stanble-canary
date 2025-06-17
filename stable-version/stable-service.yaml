@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: nginx-stable
+spec:
+  selector:
+    app: nginx
+    version: stable
+  ports:
+    - port: 80
+      targetPort: 80
